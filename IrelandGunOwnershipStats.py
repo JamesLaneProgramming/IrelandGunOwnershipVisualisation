@@ -11,29 +11,48 @@ genders = []
 numberOfGuns = []
 types = []
 
-def fileDirectoryExists(_directory):
+def retrieveCSVData():
+    '''
+    Extracts data from a CSV file and
+
+    Raises
+    ------
+    IOError:
+        If the file cannot be opened with read privileges.
+    EOFError:
+        If the file encounters an unexpected End Of Line
+    
+    Returns
+    -------
+        Ages:
+            The extracted ages from the CSV file
+        genders:
+            The extracted genders from the CSV file
+        numberOfGuns:
+            The extracted numberOfGuns from the CSV file
+        types:
+            The extracted types from the CSV file
+    '''
+    stream = None
     try:
-        with open(_directory, 'r') as _file:
-            return True
+        stream = open('gunOwnershipData', 'r')
     except IOError as error:
         raise error
         print(error.args)
-
-def retrieveCSVData(_directory):
-    validFile = None
-    if fileDirectoryExists(_directory):
-        validFile = open(_directory, 'r')
-        reader = csv.reader(validFile)
-    global ages
-    global genders
-    global numberOfGuns
-    global types
+        #Handle IOErrors here
+    try:
+        reader = csv.reader(stream)
+    except EOFError as error:
+        raise error
+        print(error.args)
+        #Handle EOFErrors here.
     for row in reader:
         ages.append(row[1])
         genders.append(row[2])
         numberOfGuns.append(row[3])
         types.append(row[4])
-    validFile.close()
+    stream.close()
+    return ages, genders, numberOfGuns, types
 
 def seperateGunTypes():
     '''
@@ -85,7 +104,7 @@ def renderGraphs():
     plt.savefig('pieGraph.png') 
 
 def main():
-    retrieveCSVData('gunOwnershipData')
+    ages, genders, numberOfGuns, types = retrieveCSVData()
     seperateGunTypes()
     renderGraphs()
     plt.show()
