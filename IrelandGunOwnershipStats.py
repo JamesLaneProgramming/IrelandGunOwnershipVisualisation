@@ -4,8 +4,8 @@ import csv
 
 #59588 entries
 
-#The CSV file contains a location field.
-#This field is redacted for security.
+'''The CSV file contains a location field.
+This field is redacted for security.'''
 ages = []
 genders = []
 numberOfGuns = []
@@ -52,6 +52,15 @@ def retrieveCSVData():
         numberOfGuns.append(row[3])
         types.append(row[4])
     stream.close()
+    try:
+        assert(len(ages) != 0)
+        assert(len(genders) != 0)
+        assert(len(numberOfGuns) != 0)
+        assert(len(types) != 0)
+    except AssertionError:
+        print """No IOError or EOFError occured but could not extract data,
+        please ensure that the file is not empty"""
+        raise
     return ages, genders, numberOfGuns, types
 
 def seperateGunTypes():
