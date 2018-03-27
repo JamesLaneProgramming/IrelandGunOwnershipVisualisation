@@ -24,13 +24,13 @@ def retrieveCSVData():
     
     Returns
     -------
-        Ages:
+        Array:
             The extracted ages from the CSV file
-        genders:
+        Array:
             The extracted genders from the CSV file
-        numberOfGuns:
+        Array:
             The extracted numberOfGuns from the CSV file
-        types:
+        Array:
             The extracted types from the CSV file
     '''
     stream = None
