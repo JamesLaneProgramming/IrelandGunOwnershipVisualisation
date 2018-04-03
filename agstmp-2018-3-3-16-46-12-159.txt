@@ -1,0 +1,25 @@
+State	Industry	Year	Beef bulls at 30 June (no.)	RSE
+Australia	Beef	1990	18	12
+Australia	Beef	1991	17	8
+Australia	Beef	1992	17	7
+Australia	Beef	1993	19	7
+Australia	Beef	1994	24	10
+Australia	Beef	1995	18	7
+Australia	Beef	1996	17	10
+Australia	Beef	1997	16	8
+Australia	Beef	1998	18	8
+Australia	Beef	1999	19	11
+Australia	Beef	2000	18	8
+Australia	Beef	2001	19	14
+Australia	Beef	2002	21	10
+Australia	Beef	2003	-	-
+Australia	Beef	2004	-	-
+Australia	Beef	2005	19	6
+Australia	Beef	2006	19	13
+Australia	Beef	2007	18	10
+Australia	Beef	2008	18	5
+
+
+
+Item	Description
+Beef bulls at 30 June (no.)	Number of beef bulls on hand at 30 June.

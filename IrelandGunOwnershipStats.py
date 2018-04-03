@@ -87,6 +87,14 @@ def seperateGunTypes():
             splitLicenseTypes.append(license)
     types = splitLicenseTypes
 
+def custom_pct(license_counts, optional_parameters):
+    for each_optional_parameter in optional_parameters:
+            if each_optional_parameter == 'repress_messages':
+                self.repress_messages = optional_parameters['repress_messages']
+           
+    for license in license_counts:
+        if
+
 #These graphs plot gun ownership of Ireland residents.
 def renderGraphs():
     x = ages
@@ -105,9 +113,18 @@ def renderGraphs():
     frequency of occurence
     '''
     unique_elements, element_counts = np.unique(types, return_counts = True)
-
+    percentage_to_render_labels = 5
+    
     fig1, ax1 = plt.subplots()
-    ax1.pie(element_counts, labels=unique_elements, autopct='%1.1f%%', shadow=True, startangle=90)
+
+    graph_labels = list()
+    for element in element_counts:
+        if element/59588 > percentage_to_render_labels:
+            graph_labels.append(element)
+        else:
+            graph_labels.append("")
+            print "Slice not large enough to render label"
+    ax1.pie(element_counts, labels=graph_labels, autopct='%.2f%%', shadow=True, startangle=90)
     ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
     #Save the graph to a file.
     plt.savefig('pieGraph.png') 
